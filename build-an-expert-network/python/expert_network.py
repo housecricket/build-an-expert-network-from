@@ -30,7 +30,20 @@ def number_of_friends(expert):
 
 # 24
 total_connections = sum(number_of_friends(expert) for expert in experts)
+# length of the users list
+num_experts = len(experts)           
+# 24 / 10 == 2.4                
+avg_connections = total_connections / num_experts   
 
-num_experts = len(experts)                           # length of the users list
-avg_connections = total_connections / num_experts   # 24 / 10 == 2.4
+# Create a list (user_id, number_of_friends).
+num_friends_by_id = [(expert["id"], number_of_friends(expert))
+                     for expert in experts]
 
+# Sort the list
+num_friends_by_id.sort(                                
+       key=lambda id_and_friends: id_and_friends[1],   # by num_friends
+       reverse=True)                                   # largest to smallest
+
+# Each pair is (expert_id, num_friends):
+# [(1, 3), (2, 3), (3, 3), (5, 3), (8, 3),
+#  (0, 2), (4, 2), (6, 2), (7, 2), (9, 1)]
