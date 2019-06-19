@@ -3,12 +3,12 @@ experts = [
     {"id": 1, "name": "Mark Zuckerberg"},
     {"id": 2, "name": "Steve Jobs"},
     {"id": 3, "name": "Jeff Bezos"},
-    {"id": 4, "name": "Thor"},
-    {"id": 5, "name": "Clive"},
-    {"id": 6, "name": "Hicks"},
-    {"id": 7, "name": "Devin"},
-    {"id": 8, "name": "Kate"},
-    {"id": 9, "name": "Klein"}
+    {"id": 4, "name": "Ha Dong Nguyen"},
+    {"id": 5, "name": "Trung Anh Dang"},
+    {"id": 6, "name": "Sundar Pichai"},
+    {"id": 7, "name": "Larry Page"},
+    {"id": 8, "name": "Sergey Brin"},
+    {"id": 9, "name": "Tim Cook"}
 ]
 
 friendship_pairs = [(0, 1), (0, 2), (1, 2), (1, 3), (2, 3), (3, 4),
