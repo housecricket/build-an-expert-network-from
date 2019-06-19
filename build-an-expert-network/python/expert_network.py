@@ -1,3 +1,5 @@
+from collections import Counter
+
 experts = [
     {"id": 0, "name": "Bill Gates"},
     {"id": 1, "name": "Mark Zuckerberg"},
@@ -47,3 +49,25 @@ num_friends_by_id.sort(
 # Each pair is (expert_id, num_friends):
 # [(1, 3), (2, 3), (3, 3), (5, 3), (8, 3),
 #  (0, 2), (4, 2), (6, 2), (7, 2), (9, 1)]
+
+# foaf is short for "friend of a friend"
+def foaf_ids_bad(expert):
+    return [foaf_id
+            for friend_id in friendships[expert["id"]]
+            for foaf_id in friendships[friend_id]]
+
+def friends_of_friends(expert):
+    expert_id = expert["id"]
+    return Counter(
+        foaf_id
+        # For each of my friends,
+        for friend_id in friendships[expert_id]     
+        # find their friends
+        for foaf_id in friendships[friend_id]   
+        # who aren't me  
+        if foaf_id != expert_id       
+         # and aren't my friends.              
+        and foaf_id not in friendships[expert_id]  
+    )
+
+print(friends_of_friends(experts[1]))               # Counter({0: 2, 5: 1})
