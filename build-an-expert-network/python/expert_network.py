@@ -28,6 +28,9 @@ def number_of_friends(expert):
     friend_ids = friendships[expert_id]
     return len(friend_ids)
 
-
 # 24
 total_connections = sum(number_of_friends(expert) for expert in experts)
+
+num_experts = len(experts)                           # length of the users list
+avg_connections = total_connections / num_experts   # 24 / 10 == 2.4
+
