@@ -110,3 +110,19 @@ def tenure_bucket(tenure):
         return "between two and five"
     else:
         return "more than five"
+
+# Keys are tenure buckets, values are lists of incomes for that bucket.
+income_by_tenure_bucket = defaultdict(list)
+
+for income, tenure in incomes_and_tenures:
+    bucket = tenure_bucket(tenure)
+    income_by_tenure_bucket[bucket].append(income)
+
+
+# Keys are tenure buckets, values are average income for that bucket.
+average_income_by_bucket = {
+  tenure_bucket: sum(incomes) / len(incomes)
+  for tenure_bucket, incomes in income_by_tenure_bucket.items()
+}
+
+print(average_income_by_bucket)
